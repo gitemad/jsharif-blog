@@ -18,6 +18,17 @@
         </a>
     </p>
 
+    <h2>Simialr posts</h2>
+    {% for post in similar_posts %}
+        <div>
+            <a href="{{ post.get_absolute_url }}">
+                {{ post.title }}
+            </a>
+        </div>
+    {% empty %}
+        There is no similar post.
+    {% endfor %}
+
     {% with comments.count as total_comment %}
         <h2>
             {{ total_comment }} comment{{ total_comment|pluralize }}
